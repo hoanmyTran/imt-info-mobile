@@ -1,0 +1,11 @@
+{
+    "name" : "Mini PWA",
+    "start_url": ".",
+    "display": "standalone",
+    "icons": [{
+        "src":"images/touch/logo512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }
+    ]
+}
