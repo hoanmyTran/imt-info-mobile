@@ -26,4 +26,38 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+    document.getElementById('cordovaDevice').addEventListener("click", cordovaDevice);
+    document.getElementById('networkInfo').addEventListener("click", networkInfo);
+    document.addEventListener("offline", onOffline, false);
+    document.addEventListener("online", onOnline, false);
 }
+
+function cordovaDevice() {
+    alert("Cordova version: " + device.cordova + "\n" +
+       "Device model: " + device.model + "\n" +
+       "Device platform: " + device.platform + "\n" +
+       "Device UUID: " + device.uuid + "\n" +
+       "Device version: " + device.version);
+ }
+
+ function networkInfo() {
+    var networkState = navigator.connection.type;
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 'No network connection';
+    alert('Connection type: ' + states[networkState]);
+ }
+
+ function onOffline() {
+    alert('You are now offline!')
+}
+
+ function onOnline() {
+     alert('You are now online!')
+ }
