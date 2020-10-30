@@ -20,6 +20,9 @@ import {StyleSheet, TextInput, View} from 'react-native'
 const Saisie = ({texteSaisie, evtTexteModifie}) => (
     <View>
         <TextInput
+            style={styles.texteSaisie}
+            value={texteSaisie}
+            onChangeText={evtTexteModifie}
             placeholder='Quelle prochaine action ?'
             placeholderTextColor='#CACACA'
             selectionColor='#666666'/>
